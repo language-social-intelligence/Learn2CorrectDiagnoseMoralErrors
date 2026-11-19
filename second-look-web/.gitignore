@@ -1,0 +1,9 @@
+.venv/
+models/
+run/
+data/
+bin/
+__pycache__/
+*.pyc
+docs/screenshots/
+docs/*-check.json

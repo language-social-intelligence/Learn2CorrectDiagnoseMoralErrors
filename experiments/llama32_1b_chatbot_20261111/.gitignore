@@ -1,0 +1,5 @@
+light/
+fusion/
+*.lock
+status.json
+__pycache__/

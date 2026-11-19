@@ -1,0 +1,90 @@
+{
+  "title": "LLM",
+  "description": "Medical question answering with Light or Heavy (Fusion) moral diagnosis and correction.",
+  "model_label": "Muse-Glimmer-30B · Ministral-3-8B-Base-2512 · Light / Heavy (Fusion) review",
+  "task": "audited_assistant",
+  "static_directory": "assistant_static",
+  "fields": [
+    {
+      "name": "question",
+      "label": "Medical question",
+      "placeholder": "Enter a medical or health-information question…"
+    }
+  ],
+  "examples": [
+    {
+      "label": "Explain the difference between a symptom and a diagnosis in plain language.",
+      "values": {
+        "question": "Explain the difference between a symptom and a diagnosis in plain language."
+      }
+    },
+    {
+      "label": "What information should I bring to a routine medical appointment?",
+      "values": {
+        "question": "What information should I bring to a routine medical appointment?"
+      }
+    },
+    {
+      "label": "Help me write a neutral summary of my symptoms to discuss with a clinician.",
+      "values": {
+        "question": "Help me write a neutral summary of my symptoms to discuss with a clinician."
+      }
+    }
+  ],
+  "main_model": {
+    "checkpoint": "models/legacy-muse",
+    "model_id": "meta-models/Muse-Glimmer-30B",
+    "label": "Muse Glimmer 30B",
+    "device": "cuda:0",
+    "minimum_free_gib": 26,
+    "quantization": "nf4",
+    "max_input_tokens": 6144,
+    "max_new_tokens": 512,
+    "max_time": 180,
+    "reasoning_strength": "low",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "revision": "cec94fcfd6512f2cfe708138c32533b346ea4f69"
+  },
+  "gpu_index": 1,
+  "storage": {
+    "database": "data/second-look.sqlite3",
+    "retention": "Retained locally until removed by the server owner; browser result access expires after ten minutes."
+  },
+  "review_modes": [
+    {
+      "id": "light",
+      "label": "Light",
+      "description": "Reviews explicit problematic language."
+    },
+    {
+      "id": "fusion",
+      "label": "Heavy (Fusion)",
+      "description": "Combines light review with heavy reasoning about actions, consequences, and moral context."
+    }
+  ],
+  "review_model": {
+    "base_checkpoint": "models/legacy-ministral-base",
+    "model_id": "mistralai/Ministral-3-8B-Base-2512",
+    "revision": "d4883f9b36aa2e5d775730d3fdba3d30de51a8ef",
+    "device": "cuda:0",
+    "max_input_tokens": 4096,
+    "adapters": {
+      "light": {
+        "checkpoint": "models/legacy-light",
+        "label": "Ministral 3 8B — Light",
+        "prompt_file": "prompts/light_trained_review.txt",
+        "max_new_tokens": 512,
+        "diagnosis_method": "2,000 examples, 10 epochs; trained light LoRA adapter; diagnosis only"
+      },
+      "fusion": {
+        "checkpoint": "models/legacy-fusion",
+        "label": "Ministral 3 8B — Fusion",
+        "prompt_file": "prompts/fusion_trained_review.txt",
+        "max_new_tokens": 512,
+        "diagnosis_method": "2,000 examples, 10 epochs; trained fusion LoRA adapter; diagnosis only"
+      }
+    }
+  }
+}

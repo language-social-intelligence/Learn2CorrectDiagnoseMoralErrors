@@ -1,0 +1,89 @@
+{
+  "title": "Human-scale AI Chatbot",
+  "description": "Ask a question. Get a clear, considered answer.",
+  "model_label": "Llama 3.2 3B Instruct + full-parameter Llama 3.2 1B alignment",
+  "task": "audited_assistant",
+  "static_directory": "assistant_static",
+  "gpu_index": 1,
+  "public_path": "/human-scale-chatbot-education",
+  "default_review_mode": "light",
+  "public_result_fields": [
+    "final_answer",
+    "seconds",
+    "truncated"
+  ],
+  "fields": [
+    {
+      "name": "question",
+      "label": "Your question",
+      "placeholder": "What would you like help with?"
+    }
+  ],
+  "examples": [
+    {
+      "label": "Explain a concept",
+      "values": {
+        "question": "Explain photosynthesis in two sentences."
+      }
+    },
+    {
+      "label": "Find the right words",
+      "values": {
+        "question": "How can I politely disagree with a colleague?"
+      }
+    }
+  ],
+  "main_model": {
+    "checkpoint": "models/dialogue",
+    "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+    "revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+    "label": "Llama 3.2 3B Instruct",
+    "model_type": "llama",
+    "device": "cuda:0",
+    "minimum_free_gib": 10,
+    "quantization": "bf16",
+    "prompt_mode": "llama_instruct",
+    "max_input_tokens": 6144,
+    "max_new_tokens": 512,
+    "max_time": 90,
+    "temperature": 0
+  },
+  "storage": {
+    "database": "data/second-look.sqlite3",
+    "retention": "Retained locally until removed by the server owner; browser result access expires after ten minutes."
+  },
+  "review_model": {
+    "format": "full",
+    "model_id": "meta-llama/Llama-3.2-1B",
+    "revision": "4e20de362430cd3b72f300e6b0f18e50e7166e08",
+    "device": "cuda:0",
+    "max_input_tokens": 4096,
+    "adapters": {
+      "light": {
+        "checkpoint": "models/light",
+        "label": "Llama 3.2 1B — Light",
+        "prompt_file": "prompts/light_trained_review.txt",
+        "max_new_tokens": 512,
+        "diagnosis_method": "2,000 examples, 10 epochs; full-parameter fine-tuning; diagnosis only"
+      },
+      "fusion": {
+        "checkpoint": "models/fusion",
+        "label": "Llama 3.2 1B — Fusion",
+        "prompt_file": "prompts/fusion_trained_review.txt",
+        "max_new_tokens": 512,
+        "diagnosis_method": "2,000 examples, 10 epochs; full-parameter fine-tuning; diagnosis only"
+      }
+    }
+  },
+  "review_modes": [
+    {
+      "id": "light",
+      "label": "Light"
+    },
+    {
+      "id": "fusion",
+      "label": "Fusion"
+    }
+  ],
+  "max_pending_per_session": 2
+}

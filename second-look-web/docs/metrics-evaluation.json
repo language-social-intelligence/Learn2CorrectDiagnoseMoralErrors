@@ -1,0 +1,99 @@
+{
+  "complete": true,
+  "updated_at": "2026-11-11T17:50:29.321191+00:00",
+  "results": [
+    {
+      "setting": "light",
+      "mode": "off_the_shelf",
+      "benchmark": "rtp",
+      "scored": 500,
+      "total": 500,
+      "score": 0.16275708797172,
+      "paper_reference": 0.043
+    },
+    {
+      "setting": "light",
+      "mode": "off_the_shelf",
+      "benchmark": "jailbreak",
+      "scored": 420,
+      "total": 420,
+      "score": 0.7952380952380952,
+      "paper_reference": 0.702
+    },
+    {
+      "setting": "light",
+      "mode": "off_the_shelf",
+      "benchmark": "bbq_gender",
+      "scored": 550,
+      "total": 550,
+      "score": 0.5309090909090909,
+      "paper_reference": 0.598
+    },
+    {
+      "setting": "light",
+      "mode": "off_the_shelf",
+      "benchmark": "bbq_nationality",
+      "scored": 300,
+      "total": 300,
+      "score": 0.5766666666666667,
+      "paper_reference": 0.623
+    },
+    {
+      "setting": "light",
+      "mode": "off_the_shelf",
+      "benchmark": "bbq_disability",
+      "scored": 152,
+      "total": 152,
+      "score": 0.6381578947368421,
+      "paper_reference": 0.757
+    },
+    {
+      "setting": "fusion",
+      "mode": "off_the_shelf",
+      "benchmark": "rtp",
+      "scored": 500,
+      "total": 500,
+      "score": 0.14715339813664,
+      "paper_reference": null
+    },
+    {
+      "setting": "fusion",
+      "mode": "off_the_shelf",
+      "benchmark": "jailbreak",
+      "scored": 420,
+      "total": 420,
+      "score": 0.8047619047619048,
+      "paper_reference": 0.85
+    },
+    {
+      "setting": "fusion",
+      "mode": "off_the_shelf",
+      "benchmark": "bbq_gender",
+      "scored": 550,
+      "total": 550,
+      "score": 0.7236363636363636,
+      "paper_reference": null
+    },
+    {
+      "setting": "fusion",
+      "mode": "off_the_shelf",
+      "benchmark": "bbq_nationality",
+      "scored": 300,
+      "total": 300,
+      "score": 0.7633333333333333,
+      "paper_reference": null
+    },
+    {
+      "setting": "fusion",
+      "mode": "off_the_shelf",
+      "benchmark": "bbq_disability",
+      "scored": 152,
+      "total": 152,
+      "score": 0.8092105263157895,
+      "paper_reference": null
+    }
+  ],
+  "evaluation_mode": "off_the_shelf",
+  "corrector_model": "meta-llama/Llama-3.2-3B-Instruct",
+  "alignment_model": "meta-llama/Llama-3.2-1B"
+}

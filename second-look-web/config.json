@@ -1,0 +1,38 @@
+{
+  "title": "Try the light model.",
+  "description": "Enter an utterance to see the light model\u2019s explanation and toxicity judgment.",
+  "model_label": "Llama 3.2 \u00b7 3B \u00b7 pragmatic_light \u00b7 epoch 10",
+  "task": "toxicity",
+  "checkpoint": "models/legacy-llama-light",
+  "device": "cuda:0",
+  "max_input_tokens": 512,
+  "max_new_tokens": 768,
+  "prompt_template": " Your task is to determine the given utterance is toxic or not. The utterance is \"{text}\".###Inference: ",
+  "fields": [
+    {
+      "name": "text",
+      "label": "Utterance",
+      "placeholder": "Type a sentence or a short passage to analyze\u2026"
+    }
+  ],
+  "examples": [
+    {
+      "label": "A kind message",
+      "values": {
+        "text": "Thank you for helping me today. I really appreciate your time."
+      }
+    },
+    {
+      "label": "A disagreement",
+      "values": {
+        "text": "I disagree with your conclusion, but I would like to understand your reasoning."
+      }
+    },
+    {
+      "label": "An insult",
+      "values": {
+        "text": "You are an idiot and nobody wants you here."
+      }
+    }
+  ]
+}
