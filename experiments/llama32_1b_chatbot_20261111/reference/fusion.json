@@ -1,0 +1,37 @@
+{
+  "model_id": "meta-llama/Llama-3.2-1B",
+  "base_revision": "4e20de362430cd3b72f300e6b0f18e50e7166e08",
+  "mode": "fusion",
+  "training": "full-parameter fine-tuning; no LoRA",
+  "trainable_parameters": 1235814400,
+  "examples": 2000,
+  "epochs": 10,
+  "effective_batch_size": 16,
+  "microbatch_size": 4,
+  "learning_rate": 5e-05,
+  "optimizer": "adamw_torch",
+  "schedule": "linear",
+  "precision": "bfloat16",
+  "seed": 1,
+  "max_tokens": 732,
+  "mean_tokens": 441.3305,
+  "truncated_examples": 0,
+  "loss": "all non-padding tokens, append EOS",
+  "selection": "final epoch, no test selection",
+  "data_file": "experiments/MIC.Correct.pragmatic_semantic_fusion.llama3.2-3B.2000.train.1.txt",
+  "data_sha256": "d9681e55d95c0b0829826f98208dfc2774b0ace5e4e7ff8aad41be0e5b5b9463",
+  "packages": {
+    "torch": "2.7.0",
+    "transformers": "5.15.0",
+    "datasets": "4.8.5",
+    "accelerate": "1.6.0"
+  },
+  "metrics": {
+    "train_runtime": 2181.6188,
+    "train_samples_per_second": 9.168,
+    "train_steps_per_second": 0.573,
+    "train_loss": 0.22494014732837678,
+    "epoch": 10.0
+  },
+  "finished_at": 1794380103.9073832
+}

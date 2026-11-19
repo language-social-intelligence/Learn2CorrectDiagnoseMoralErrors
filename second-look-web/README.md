@@ -23,7 +23,7 @@ Provide three complete Hugging Face checkpoint directories with weights, tokeniz
 | `models/light/` | Full-parameter Light reviewer trained from Llama 3.2 1B |
 | `models/fusion/` | Full-parameter Fusion reviewer trained from the same base revision |
 
-Both reviewers load at startup. To produce their weights from the original training inputs, see the [reviewer training recipe](../experiments/llama32_1b_chatbot_20261111/README.md). Model loading uses local files. Obtain access to the Llama checkpoints before starting.
+Both reviewers load at startup. To produce their weights from the training inputs included in this repository, see the [reviewer training recipe](../experiments/llama32_1b_chatbot_20261111/README.md). Model loading uses local files. Obtain access to the Llama checkpoints before starting.
 
 ## Start and verify
 
